@@ -18,15 +18,20 @@ if [ "x$1" = "xdiscovery" ]; then
 
     COUNT=`echo "$MYSQL_PORTS" | wc -w`
     INDEX=0
-    echo '{"data":['
+    printf '{\n'
+	printf '\t"data":[\n'
+	
     for MYSQL_PORT in $MYSQL_PORTS; do
-        echo -n '{"{#MYSQL_PORT}":"'$MYSQL_PORT'"}'
+	printf "\t\t{ \n"
+	printf "\t\t\t"{#MYSQL_PORT}":"$MYSQL_PORT"\n"
         INDEX=`expr $INDEX + 1`
         if [ $INDEX -lt $COUNT ]; then
             echo ','
         fi
+	printf "\t\t} \n"
     done
-    echo ']}'
+	printf '\t"]"\n'
+	printf '"}"\n'
 
 elif [ "x$1" = "xcollector" ]; then
 

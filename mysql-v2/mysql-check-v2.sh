@@ -19,7 +19,7 @@ if [ "x$1" = "xdiscovery" ]; then
     COUNT=`echo "$MYSQL_PORTS" | wc -w`
     INDEX=0
     printf '{\n'
-	printf '\t"data":[\n'
+    printf '\t"data":[\n'
 	
     for MYSQL_PORT in $MYSQL_PORTS; do
 	printf "\t\t{ \n"
